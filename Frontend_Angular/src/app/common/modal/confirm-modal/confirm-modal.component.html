@@ -1,0 +1,13 @@
+<div class="modal-wrap confirm">
+  <h2 class="info-modal-title">{{ data.modalTitle }}</h2>
+  <p>{{ data.modalMessage }}</p>
+  <div class="action-btn">
+    <button mat-raised-button color="primary" (click)="confirmDialog()">
+      Yes
+    </button>
+
+    <button mat-raised-button color="primary" (click)="closeDialog()">
+      No
+    </button>
+  </div>
+</div>

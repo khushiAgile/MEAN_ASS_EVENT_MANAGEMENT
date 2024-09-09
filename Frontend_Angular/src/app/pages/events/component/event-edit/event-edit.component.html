@@ -1,0 +1,127 @@
+<div class="d-flex justify-content-center align-items-center w-100 main-login">
+  <form
+    [formGroup]="eventForm"
+    (ngSubmit)="onSubmit()"
+    class="shadow p-3 rounded"
+  >
+    <h2 class="d-flex justify-content-between align-items-center">
+      Edit Event
+
+      <button
+        mat-button
+        class="primary mb-3 mr-3 float-left back-btn"
+        routerLink="/events"
+        matTooltip="Back to events list"
+      >
+        <mat-icon>arrow_back</mat-icon>
+      </button>
+    </h2>
+    <div class="d-flex justify-content-center align-items-center login-form">
+      <mat-form-field class="form-input">
+        <mat-label>Title</mat-label>
+        <input
+          type="text"
+          matInput
+          formControlName="title"
+          placeholder="Enter title"
+        />
+        <mat-error
+          class="mb-2"
+          *ngIf="
+            eventForm.get('title')?.hasError('required') ||
+            eventForm.get('title')?.touched
+          "
+        >
+          Title is required
+        </mat-error>
+      </mat-form-field>
+
+      <mat-form-field class="form-input">
+        <mat-label>Date</mat-label>
+        <input
+          matInput
+          formControlName="date"
+          [matDatepicker]="picker"
+          placeholder="Choose a date"
+        />
+        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
+        <mat-error
+          class="mb-2"
+          *ngIf="
+            eventForm.get('date')?.hasError('required') ||
+            eventForm.get('date')?.touched
+          "
+        >
+          Date is required
+        </mat-error>
+      </mat-form-field>
+
+      <mat-form-field class="form-input">
+        <mat-label>Time</mat-label>
+        <input
+          type="time"
+          matInput
+          formControlName="time"
+          placeholder="Enter time"
+        />
+        <mat-error
+          class="mb-2"
+          *ngIf="
+            eventForm.get('time')?.hasError('required') ||
+            eventForm.get('time')?.touched
+          "
+        >
+          Time is required
+        </mat-error>
+      </mat-form-field>
+
+      <mat-form-field class="form-input">
+        <mat-label>Location</mat-label>
+        <input
+          type="text"
+          matInput
+          formControlName="location"
+          placeholder="Enter location"
+        />
+        <mat-error
+          class="mb-2"
+          *ngIf="
+            eventForm.get('location')?.hasError('required') ||
+            eventForm.get('location')?.touched
+          "
+        >
+          Location is required
+        </mat-error>
+      </mat-form-field>
+
+      <mat-form-field class="form-input">
+        <mat-label>Description</mat-label>
+        <textarea
+          matInput
+          formControlName="description"
+          placeholder="Enter description"
+        ></textarea>
+        <mat-error
+          class="mb-2"
+          *ngIf="
+            eventForm.get('description')?.hasError('required') ||
+            eventForm.get('description')?.touched
+          "
+        >
+          Description is required
+        </mat-error>
+      </mat-form-field>
+
+      <button
+        mat-raised-button
+        class="btn btn-primary submit-btn"
+        color="primary"
+        type="submit"
+        [disabled]="!eventForm.valid"
+      >
+        Submit
+      </button>
+    </div>
+  </form>
+</div>

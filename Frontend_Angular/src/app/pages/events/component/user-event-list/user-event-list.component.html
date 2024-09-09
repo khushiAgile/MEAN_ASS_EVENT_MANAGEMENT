@@ -1,0 +1,45 @@
+<div class="container">
+  <h2>My Events</h2>
+
+  <mat-card
+    class="events-card shadow p-3 rounded"
+    *ngIf="eventList.result.length > 0"
+  >
+    <mat-table [dataSource]="eventList.result">
+      <ng-container matColumnDef="title">
+        <mat-header-cell *matHeaderCellDef> Title </mat-header-cell>
+        <mat-cell *matCellDef="let event"> {{ event.title }} </mat-cell>
+      </ng-container>
+
+      <ng-container matColumnDef="description">
+        <mat-header-cell *matHeaderCellDef> Description </mat-header-cell>
+        <mat-cell *matCellDef="let event"> {{ event.description.length > 50 ? event.description.substring(0, 50) + '...' : event.description }} </mat-cell>
+      </ng-container>
+
+      <ng-container matColumnDef="date">
+        <mat-header-cell *matHeaderCellDef> Date </mat-header-cell>
+        <mat-cell *matCellDef="let event">
+          {{ event.date | date : "dd/MM/yyyy" }}
+        </mat-cell>
+      </ng-container>
+
+      <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+      <mat-row *matRowDef="let row; columns: displayedColumns"></mat-row>
+    </mat-table>
+    <!-- Pagination Controls -->
+    <mat-paginator
+      class="Pagination"
+      [length]="eventList.recordsTotal"
+      [pageSize]="pageLimit"
+      (page)="onPageChange($event)"
+    >
+    </mat-paginator>
+  </mat-card>
+
+  <mat-card
+    class="events-card shadow p-3 rounded"
+    *ngIf="eventList.result.length === 0"
+  >
+    <h3>No Events found</h3>
+  </mat-card>
+</div>

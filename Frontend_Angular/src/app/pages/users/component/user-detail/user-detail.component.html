@@ -1,0 +1,38 @@
+<div class="container">
+  <!-- Back to event list  -->
+
+  <h2 class="d-flex justify-content-between align-items-center">
+    User Details
+
+    <button
+      mat-button
+      class="primary mb-3 mr-3 float-left back-btn"
+      routerLink="/users"
+      matTooltip="Back to users list"
+    >
+      <mat-icon>arrow_back</mat-icon>
+    </button>
+  </h2>
+
+  <mat-chip [ngClass]="userDetail?.isActive ? 'green' : 'red'" class="mb-3">
+    <span class="status-text">
+      {{ userDetail?.isActive ? "Active" : "Inactive" }}
+    </span>
+  </mat-chip>
+
+  <mat-card class="d-flex shadow p-3 rounded filters-card">
+    <!-- Show event details with field names and values -->
+    <div class="d-flex flex-row">
+      <h4>Name</h4>
+      <p class="mt-1">: {{ userDetail?.name }}</p>
+    </div>
+    <div class="d-flex flex-row">
+      <h4>Email</h4>
+      <p class="mt-1">: {{ userDetail?.email }}</p>
+    </div>
+    <div class="d-flex flex-row">
+      <h4>Status</h4>
+      <p class="mt-1">: {{ userDetail?.isActive ? "Active" : "Inactive" }}</p>
+    </div>
+  </mat-card>
+</div>

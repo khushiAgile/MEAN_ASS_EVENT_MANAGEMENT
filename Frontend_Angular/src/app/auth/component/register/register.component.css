@@ -1,0 +1,65 @@
+.main-login {
+  height: calc(100vh - 64px);
+
+  h2 {
+    color: #c2185b;
+  }
+
+  .login-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 500px;
+    margin: 5px;
+
+    .form-input {
+      width: 100%;
+
+      .mat-mdc-text-field-wrapper {
+        border-bottom: 1px solid #c2185b;
+      }
+
+      mat-label,
+      .mat-mdc-form-field-error {
+        color: #c2185b;
+      }
+
+      .mdc-text-field--filled {
+        background-color: #fff;
+      }
+
+      input,
+      .mat-mdc-select {
+        color: #c2185b;
+      }
+
+      .mat-option {
+        color: #fff;
+        background-color: #e91e63;
+      }
+
+      .mat-mdc-select-panel {
+        background-color: #e91e63 !important;
+      }
+
+      .mat-option.mat-option-selected {
+        background-color: #e91e63;
+      }
+    }
+
+    button {
+      background-color: #c2185b;
+      color: #fff;
+    }
+
+    .redirection-link {
+      color: #c2185b;
+      margin-top: 5px;
+      a {
+        color: #c2185b;
+        font-weight: 600;
+      }
+    }
+  }
+}

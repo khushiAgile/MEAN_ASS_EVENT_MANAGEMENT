@@ -1,0 +1,32 @@
+.container {
+  padding: 16px;
+
+  h2 {
+    color: #c2185b;
+  }
+  /* For chip */
+  .mat-mdc-chip {
+    &.green {
+      background-color: green;
+    }
+
+    &.red {
+      background-color: red;
+    }
+  }
+
+  .filters-card {
+    background-color: #fff;
+    color: #c2185b;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+    padding: 16px;
+    margin-bottom: 20px;
+  }
+
+  .events-card {
+    overflow-x: auto;
+    background-color: #fff;
+  }
+}

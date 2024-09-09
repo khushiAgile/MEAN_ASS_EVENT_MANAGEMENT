@@ -1,0 +1,33 @@
+<mat-toolbar color="primary">
+  <div class="container">
+    <a mat-button routerLink="/">
+      <h2>Events Management</h2>
+    </a>
+    <span class="spacer"></span>
+
+    <div>
+      <!-- If user is Admin show user menu -->
+      <button
+        mat-button
+        *ngIf="isLoggedIn && isAdmin"
+        routerLink="/users"
+        routerLinkActive="active"
+      >
+        Users
+      </button>
+
+      <!-- If user is logged in show events menu -->
+      <button
+        mat-button
+        *ngIf="isLoggedIn"
+        routerLink="/events"
+        routerLinkActive="active"
+      >
+        Events
+      </button>
+
+      <button mat-button *ngIf="isLoggedIn" (click)="logout()">Logout</button>
+    </div>
+  </div>
+</mat-toolbar>
+<router-outlet></router-outlet>

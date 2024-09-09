@@ -1,0 +1,94 @@
+/* You can add global styles to this file, and also import other style files */
+
+html,
+body {
+  height: 100%;
+}
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+/* For card */
+mat-card {
+  background-color: #fff;
+  color: #c2185b;
+}
+
+/* For table */
+.mat-mdc-table {
+  background-color: #fff !important;
+  width: 100%;
+  color: #c2185b;
+  border-bottom: #c2185b solid 1px !important;
+
+  mat-header-cell,
+  mat-cell {
+    color: #c2185b;
+
+    padding: 8px;
+    text-align: left;
+    .mdc-button {
+      min-width: 10px !important;
+
+      .mat-icon {
+        margin: 0px !important;
+      }
+    }
+
+    .mat-mdc-chip {
+      &.green {
+        background-color: green;
+      }
+
+      &.red {
+        background-color: red;
+      }
+    }
+
+    .mdc-button:hover {
+      border: none !important;
+      background-color: #fa98bf !important;
+      color: #fff !important;
+    }
+  }
+}
+
+/* For pagination */
+mat-paginator {
+  background-color: #fff !important;
+  color: #c2185b !important;
+  .mat-mdc-paginator-range-actions {
+    gap: 10px !important;
+    .mat-mdc-paginator-navigation-previous,
+    .mat-mdc-paginator-navigation-next {
+      background-color: #c2185b !important;
+      color: #fff !important;
+      svg{
+        fill:#fff !important;
+      }
+    }
+  }
+}
+
+/* For icon button */
+.mat-mdc-icon-button,
+mat-icon-button {
+  color: #c2185b !important;
+}
+
+/* For icon */
+.mat-icon {
+  color: #c2185b !important;
+}
+
+/* For chip */
+&.mat-mdc-chip {
+  &.green {
+    background-color: green;
+  }
+
+  &.red {
+    background-color: red;
+  }
+}

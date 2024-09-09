@@ -1,0 +1,85 @@
+<div class="container">
+  <!-- Back to event list  -->
+
+  <h2 class="d-flex justify-content-between align-items-center">
+    Event Details
+
+    <button
+      mat-button
+      class="primary mb-3 mr-3 float-left back-btn"
+      routerLink="/events"
+      matTooltip="Back to events list"
+    >
+      <mat-icon>arrow_back</mat-icon>
+    </button>
+  </h2>
+  <mat-card class="d-flex shadow p-3 rounded filters-card">
+    <!-- Show event details with field names and values -->
+    <div class="d-flex flex-row">
+      <h4>Title</h4>
+      <p class="mt-1">: {{ eventDetail?.title }}</p>
+    </div>
+    <div class="d-flex flex-row">
+      <h4>Date</h4>
+      <p class="mt-1">: {{ eventDetail?.date | date }}</p>
+    </div>
+    <div class="d-flex flex-row">
+      <h4>Time</h4>
+      <p class="mt-1">: {{ eventDetail?.time }}</p>
+    </div>
+    <div class="d-flex flex-row">
+      <h4>Location</h4>
+      <p class="mt-1">: {{ eventDetail?.location }}</p>
+    </div>
+    <div class="d-flex flex-row">
+      <h4>Description</h4>
+      <p class="mt-1">: {{ eventDetail?.description }}</p>
+    </div>
+    <div class="d-flex flex-row" *ngIf="!isAdmin && eventDetail?.isRsvp">
+      <mat-chip class="mt-1" >You are attending this event.</mat-chip>
+    </div>
+    <div class="d-flex flex-row" *ngIf="!isAdmin && !eventDetail?.isRsvp">
+      <button mat-raised-button color="primary" (click)="userRsvp(eventDetail?._id || '')">Click to attende event</button>
+    </div>
+  </mat-card>
+
+  <h2 *ngIf="isAdmin">Attendees</h2>
+  <mat-card
+    class="events-card shadow p-3 rounded"
+    *ngIf="attendees.result.length > 0 && isAdmin"
+  >
+    <mat-table [dataSource]="attendees.result">
+      <ng-container matColumnDef="name">
+        <mat-header-cell *matHeaderCellDef> Title </mat-header-cell>
+        <mat-cell *matCellDef="let attendees">
+          {{ attendees.name }}
+        </mat-cell>
+      </ng-container>
+
+      <ng-container matColumnDef="email">
+        <mat-header-cell *matHeaderCellDef> Description </mat-header-cell>
+        <mat-cell *matCellDef="let attendees">
+          {{ attendees.email }}
+        </mat-cell>
+      </ng-container>
+
+      <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+      <mat-row *matRowDef="let row; columns: displayedColumns"></mat-row>
+    </mat-table>
+    <!-- Pagination Controls -->
+    <mat-paginator
+      class="Pagination"
+      [length]="attendees.recordsTotal"
+      [pageSize]="pageLimit"
+      (page)="onPageChange($event)"
+    >
+    </mat-paginator>
+  </mat-card>
+
+  <mat-card
+    class="events-card shadow p-3 rounded"
+    *ngIf="attendees.result.length === 0 && isAdmin"
+  >
+    <h3>No attendees found</h3>
+  </mat-card>
+</div>

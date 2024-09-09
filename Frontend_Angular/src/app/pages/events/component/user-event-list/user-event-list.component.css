@@ -1,0 +1,70 @@
+.container {
+  padding: 16px;
+
+  h2 {
+    color: #c2185b;
+  }
+  .filters-card {
+    background-color: #fff;
+    color: #c2185b;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+    padding: 16px;
+    margin-bottom: 20px;
+
+    .search-btn:disabled {
+      background-color: #cf3472;
+      color: #fff;
+    }
+
+    .form-input {
+      width: inherit;
+
+      .mat-mdc-text-field-wrapper {
+        border-bottom: 1px solid #c2185b;
+      }
+
+      .mat-mdc-text-field-wrapper :focus {
+        border: none;
+      }
+
+      mat-label,
+      .mat-mdc-form-field-error {
+        color: #c2185b;
+      }
+
+      .mdc-text-field--filled {
+        background-color: #fff;
+      }
+
+      input {
+        color: #c2185b;
+      }
+    }
+
+    .filter-field {
+      flex: 1;
+      min-width: 200px;
+    }
+  }
+
+  .events-card {
+    overflow-x: auto;
+    background-color: #fff;
+
+    .mat-mdc-chip {
+      .mat-mdc-chip-action {
+        .status-text {
+          display: flex;
+          align-items: center;
+          text-align: center;
+
+          .mat-icon {
+            color: #fff !important;
+          }
+        }
+      }
+    }
+  }
+}

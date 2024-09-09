@@ -1,0 +1,74 @@
+<div class="d-flex justify-content-center align-items-center w-100 main-login">
+  <form
+    [formGroup]="loginForm"
+    (ngSubmit)="onSubmit()"
+    class="d-flex justify-content-center align-items-center shadow p-3 rounded login-form"
+  >
+    <h2>Login</h2>
+    <mat-form-field class="form-input">
+      <mat-label>Email</mat-label>
+      <input
+        type="text"
+        matInput
+        formControlName="email"
+        placeholder="Enter email"
+      />
+      <mat-error
+        *ngIf="
+          loginForm.get('email')?.hasError('required') ||
+          loginForm.get('email')?.touched
+        "
+      >
+        Email is required
+      </mat-error>
+    </mat-form-field>
+    <mat-form-field class="form-input">
+      <mat-label>Password</mat-label>
+      <input
+        type="password"
+        matInput
+        formControlName="password"
+        placeholder="Enter password"
+      />
+      <mat-error
+        *ngIf="
+          loginForm.get('password')?.hasError('required') &&
+          loginForm.get('password')?.touched
+        "
+      >
+        Password is required
+      </mat-error>
+      <mat-error
+        *ngIf="
+         !loginForm.get('password')?.hasError('required') &&
+          loginForm.get('password')?.hasError('strong_password') &&
+          loginForm.get('password')?.touched
+        "
+      >
+         Password must be of 6 – 8 characters and contains 1
+                  uppercase, 1 lowercase, 1 number and 1 special character
+      </mat-error>
+      
+    </mat-form-field>
+
+    <button
+      mat-raised-button
+      class="btn btn-primary mt-5"
+      color="primary"
+      type="submit"
+      [disabled]="!loginForm.valid"
+    >
+      Login
+    </button>
+    <span class="redirection-link"
+      >Don't have an account?
+      <a class="text-decoration-none" routerLink="/register">Register</a></span
+    >
+    <span class="redirection-link">
+      Forgot Password?
+      <a class="text-decoration-none" routerLink="/forgot-password"
+        >Forgot Password</a
+      ></span
+    >
+  </form>
+</div>

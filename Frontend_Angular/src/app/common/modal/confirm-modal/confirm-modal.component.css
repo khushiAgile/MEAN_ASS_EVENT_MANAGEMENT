@@ -1,0 +1,28 @@
+.modal-wrap {
+  background-color: #fff;
+  color: #c2185b;
+  width: 600px;
+  height: auto;
+  overflow: hidden auto;
+  padding: 20px;
+
+  p {
+    margin-bottom: 22px;
+  }
+
+  .action-btn {
+    display: flex;
+    justify-content: flex-end;
+  }
+
+  button {
+    background-color: #c2185b;
+    color: #fff;
+    border: none;
+    padding: 5px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-right: 10px;
+    margin-bottom: 10px;
+  }
+}
